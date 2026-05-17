@@ -47,6 +47,7 @@ uploadPath
 !*/build/*.html
 !*/build/*.xml
 
+tmp
 /表格/
 
 node_modules/

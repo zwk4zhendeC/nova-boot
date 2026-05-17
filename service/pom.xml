@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ruoyi</groupId>
-    <artifactId>ruoyi</artifactId>
-    <version>3.9.2</version>
+    <groupId>cn.demo</groupId>
+    <artifactId>service</artifactId>
+    <version>${revision}</version>
 
     <name>nova-boot</name>
-    <url>http://www.ruoyi.vip</url>
-    <description>若依管理系统</description>
+    <description>nova-boot管理系统</description>
 
     <properties>
-        <ruoyi.version>3.9.2</ruoyi.version>
+        <revision>3.9.2</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>21</java.version>
@@ -107,13 +106,6 @@
                 <version>${poi.version}</version>
             </dependency>
 
-            <!-- velocity代码生成使用模板 -->
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
-
             <!-- 阿里JSON解析器 -->
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>
@@ -137,49 +129,56 @@
 
             <!-- 定时任务-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-quartz</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>cn.demo</groupId>
+                <artifactId>module-quartz</artifactId>
+                <version>${revision}</version>
             </dependency>
 
-            <!-- 代码生成-->
+            <!-- velocity代码生成使用模板 -->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-generator</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
             </dependency>
 
             <!-- 核心模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-framework</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>cn.demo</groupId>
+                <artifactId>common-framework</artifactId>
+                <version>${revision}</version>
             </dependency>
 
             <!-- 系统模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-system</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>cn.demo</groupId>
+                <artifactId>module-system</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 代码生成-->
+            <dependency>
+                <groupId>cn.demo</groupId>
+                <artifactId>module-generator</artifactId>
+                <version>${revision}</version>
             </dependency>
 
             <!-- 通用工具-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-common</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>cn.demo</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${revision}</version>
             </dependency>
 
         </dependencies>
     </dependencyManagement>
 
     <modules>
-        <module>ruoyi-admin</module>
-        <module>ruoyi-framework</module>
-        <module>ruoyi-system</module>
-        <module>ruoyi-quartz</module>
-        <module>ruoyi-generator</module>
-        <module>ruoyi-common</module>
+        <module>api-admin</module>
+        <module>common-framework</module>
+        <module>module-system</module>
+        <module>module-quartz</module>
+        <module>module-generator</module>
+        <module>common-core</module>
     </modules>
     <packaging>pom</packaging>
 
