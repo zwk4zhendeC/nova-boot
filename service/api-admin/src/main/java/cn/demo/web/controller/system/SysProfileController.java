@@ -1,6 +1,8 @@
 package cn.demo.web.controller.system;
 
 import java.util.Map;
+import java.util.List;
+import com.alibaba.fastjson2.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,6 +55,29 @@ public class SysProfileController extends BaseController
         ajax.put("roleGroup", userService.selectUserRoleGroup(loginUser.getUsername()));
         ajax.put("postGroup", userService.selectUserPostGroup(loginUser.getUsername()));
         return ajax;
+    }
+
+    /**
+     * 获取当前用户常用菜单ID集合
+     */
+    @GetMapping("/frequentMenus")
+    public AjaxResult frequentMenus()
+    {
+        String frequentMenuIds = userService.selectFrequentMenuIdsByUserId(getUserId());
+        if (StringUtils.isEmpty(frequentMenuIds))
+        {
+            return success(List.of());
+        }
+        return success(JSON.parseArray(frequentMenuIds, Long.class));
+    }
+
+    /**
+     * 更新当前用户常用菜单ID集合
+     */
+    @PutMapping("/frequentMenus")
+    public AjaxResult updateFrequentMenus(@RequestBody List<Long> menuIds)
+    {
+        return toAjax(userService.updateFrequentMenuIds(getUserId(), JSON.toJSONString(menuIds)));
     }
 
     /**

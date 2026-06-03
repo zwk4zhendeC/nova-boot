@@ -125,10 +125,10 @@ springdoc:
     path: /swagger-ui.html
     tags-sorter: alpha
   group-configs:
-    - group: 'default'
-      display-name: '测试模块'
+    - group: 'sys'
+      display-name: '系统模块'
       paths-to-match: '/**'
-      packages-to-scan: cn.demo.web.controller.tool
+      packages-to-scan: cn.demo.web.controller
 
 # 防盗链配置
 referer:

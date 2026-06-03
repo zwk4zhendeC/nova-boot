@@ -52,6 +52,14 @@ public interface ISysUserService
     public SysUser selectUserById(Long userId);
 
     /**
+     * 通过用户ID查询常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @return 常用菜单ID集合JSON
+     */
+    public String selectFrequentMenuIdsByUserId(Long userId);
+
+    /**
      * 根据用户ID查询用户所属角色组
      *
      * @param userName 用户名
@@ -128,6 +136,15 @@ public interface ISysUserService
      * @return 结果
      */
     public int updateUser(SysUser user);
+
+    /**
+     * 更新用户常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @param frequentMenuIds 常用菜单ID集合JSON
+     * @return 结果
+     */
+    public int updateFrequentMenuIds(Long userId, String frequentMenuIds);
 
     /**
      * 用户授权角色

@@ -53,6 +53,14 @@ public interface SysUserMapper
     public SysUser selectUserById(Long userId);
 
     /**
+     * 通过用户ID查询常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @return 常用菜单ID集合JSON
+     */
+    public String selectFrequentMenuIdsByUserId(Long userId);
+
+    /**
      * 新增用户信息
      *
      * @param user 用户信息
@@ -67,6 +75,15 @@ public interface SysUserMapper
      * @return 结果
      */
     public int updateUser(SysUser user);
+
+    /**
+     * 更新用户常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @param frequentMenuIds 常用菜单ID集合JSON
+     * @return 结果
+     */
+    public int updateFrequentMenuIds(@Param("userId") Long userId, @Param("frequentMenuIds") String frequentMenuIds);
 
     /**
      * 修改用户头像

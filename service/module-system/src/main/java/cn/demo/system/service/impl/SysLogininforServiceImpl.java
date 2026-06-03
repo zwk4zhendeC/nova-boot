@@ -27,7 +27,22 @@ public class SysLogininforServiceImpl implements ISysLogininforService
     @Override
     public void insertLogininfor(SysLogininfor logininfor)
     {
+        logininfor.setUserName(limit(logininfor.getUserName(), 50));
+        logininfor.setIpaddr(limit(logininfor.getIpaddr(), 128));
+        logininfor.setLoginLocation(limit(logininfor.getLoginLocation(), 255));
+        logininfor.setBrowser(limit(logininfor.getBrowser(), 50));
+        logininfor.setOs(limit(logininfor.getOs(), 50));
+        logininfor.setMsg(limit(logininfor.getMsg(), 255));
         logininforMapper.insertLogininfor(logininfor);
+    }
+
+    private String limit(String value, int maxLength)
+    {
+        if (value == null || value.length() <= maxLength)
+        {
+            return value;
+        }
+        return value.substring(0, maxLength);
     }
 
     /**

@@ -130,6 +130,18 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     /**
+     * 通过用户ID查询常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @return 常用菜单ID集合JSON
+     */
+    @Override
+    public String selectFrequentMenuIdsByUserId(Long userId)
+    {
+        return userMapper.selectFrequentMenuIdsByUserId(userId);
+    }
+
+    /**
      * 查询用户所属角色组
      * 
      * @param userName 用户名
@@ -302,6 +314,19 @@ public class SysUserServiceImpl implements ISysUserService
         // 新增用户与岗位管理
         insertUserPost(user);
         return userMapper.updateUser(user);
+    }
+
+    /**
+     * 更新用户常用菜单ID集合
+     *
+     * @param userId 用户ID
+     * @param frequentMenuIds 常用菜单ID集合JSON
+     * @return 结果
+     */
+    @Override
+    public int updateFrequentMenuIds(Long userId, String frequentMenuIds)
+    {
+        return userMapper.updateFrequentMenuIds(userId, frequentMenuIds);
     }
 
     /**

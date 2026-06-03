@@ -50,6 +50,7 @@ CREATE TABLE sys_user (
   phonenumber       varchar(11)     default '',
   sex               char(1)         default '0',
   avatar            varchar(100)    default '',
+  frequent_menu_ids varchar(255)    default null,
   password          varchar(100)    default '',
   status            char(1)         default '0',
   del_flag          char(1)         default '0',
@@ -68,9 +69,8 @@ ALTER TABLE sys_user ALTER COLUMN user_id RESTART WITH 100;
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', current_timestamp, current_timestamp, 'admin', current_timestamp, '', null, '管理员');
-insert into sys_user values(2,  105, 'ry',    '若依', '00', 'ry@qq.com',  '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', current_timestamp, current_timestamp, 'admin', current_timestamp, '', null, '测试员');
-
+insert into sys_user values(1,  103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '','[101,102]', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', current_timestamp, current_timestamp, 'admin', current_timestamp, '', null, '管理员');
+insert into sys_user values(2,  105, 'ry',    '若依', '00', 'ry@qq.com',  '15666666666', '1', '', '[101,102]','$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', current_timestamp, current_timestamp, 'admin', current_timestamp, '', null, '测试员');
 
 -- ----------------------------
 -- 3、岗位信息表
@@ -739,3 +739,5 @@ CREATE TABLE gen_table_column (
 ALTER TABLE gen_table_column ALTER COLUMN column_id RESTART WITH 1;
 
 select * from sys_config
+
+select * from sys_logininfor

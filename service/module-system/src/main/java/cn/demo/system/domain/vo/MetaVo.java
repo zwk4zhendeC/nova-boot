@@ -10,6 +10,11 @@ import cn.demo.common.utils.StringUtils;
 public class MetaVo
 {
     /**
+     * 菜单ID
+     */
+    private Long menuId;
+
+    /**
      * 设置该路由在侧边栏和面包屑中展示的名字
      */
     private String title;
@@ -31,6 +36,33 @@ public class MetaVo
 
     public MetaVo()
     {
+    }
+
+    public MetaVo(Long menuId, String title, String icon)
+    {
+        this.menuId = menuId;
+        this.title = title;
+        this.icon = icon;
+    }
+
+    public MetaVo(Long menuId, String title, String icon, boolean noCache, String link)
+    {
+        this.menuId = menuId;
+        this.title = title;
+        this.icon = icon;
+        this.noCache = noCache;
+        if (StringUtils.ishttp(link))
+        {
+            this.link = link;
+        }
+    }
+
+    public MetaVo(Long menuId, String title, String icon, String link)
+    {
+        this.menuId = menuId;
+        this.title = title;
+        this.icon = icon;
+        this.link = link;
     }
 
     public MetaVo(String title, String icon)
@@ -67,6 +99,16 @@ public class MetaVo
     public boolean isNoCache()
     {
         return noCache;
+    }
+
+    public Long getMenuId()
+    {
+        return menuId;
+    }
+
+    public void setMenuId(Long menuId)
+    {
+        this.menuId = menuId;
     }
 
     public void setNoCache(boolean noCache)
