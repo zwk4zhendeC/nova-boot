@@ -21,7 +21,7 @@ services:
       POSTGRES_DB: nova-boot
     volumes:
       - ./sql:/docker-entrypoint-initdb.d:ro
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U root -d nova-boot"]
       interval: 10s
